@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // incluir el header desde header.html
+    fetch('../templates/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML('afterbegin', data);
+        });
+</script>
+    <h1>Carrito de Compras</h1>
+    <div id="carrito-contenedor" class="carrito-contenedor">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="carrito-body">
+                <!-- Los productos del carrito se agregarán aquí dinámicamente -->
+            </tbody>
+        </table>
+        <div class="carrito-total">
+            <h3>Total: $<span id="carrito-total">0.00</span></h3>
+            <button id="vaciar-carrito" class="btn btn-danger">Vaciar Carrito</button>
+            <button id="finalizar-compra" class="btn btn-success">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <script src="assets/js/carrito.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script>
+    // Función para renderizar los productos del carrito
+    function renderizarCarrito() {
+        const carritoBody = document.getElementById('carrito-body');
+        const carritoTotal = document.getElementById('carrito-total');
+        carritoBody.innerHTML = '';
+        let total = 0; // Variable para almacenar el total
+        carrito.forEach(producto => {
+            const subtotal = producto.precio * producto.cantidad; // Calcular el subtotal
+            total += subtotal; // Sumar el subtotal al total
+            const fila = document.createElement('tr');
+            fila.innerHTML = `
+                <td>${producto.nombre}</td>
+                <td>$${producto.precio.toFixed(2)}</td>
+                <td>${producto.cantidad}</td>
+                <td>$${subtotal.toFixed(2)}</td>
+                <td><button class="btn btn-danger btn-sm eliminar-producto" data-id="${producto.id}">Eliminar</button></td>
+            `;
+            carritoBody.appendChild(fila);
+        });
+        carritoTotal.textContent = total.toFixed(2); // Actualizar el total en el HTML
+        // Agregar event listeners a los botones de eliminar
+        document.querySelectorAll('.eliminar-producto').forEach(boton => {
+            boton.addEventListener('click', function() {            
+                const id = parseInt(this.getAttribute('data-id'));
+                eliminarDelCarrito(id);
+            });
+        });
+    }
+    // Llamar a la función para renderizar el carrito al cargar la página
+    document.addEventListener('DOMContentLoaded', renderizarCarrito);
+</script>
+
+
+<script class="footer-script">
+    fetch('../templates/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML('beforeend', data);
+        });
+</script>
+</body>
+</html>

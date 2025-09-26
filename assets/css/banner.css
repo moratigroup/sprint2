@@ -1,0 +1,30 @@
+/**
+ * Estilos para el banner de la tienda
+ */
+.banner {
+    margin-bottom: 20px;
+}   
+.banner img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.banner .btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+.banner .btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+.banner .btn-primary:hover {
+    background-color: #0056b3;
+}
+.banner .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+.banner .btn-primary:active {
+    background-color: #004085;
+}               

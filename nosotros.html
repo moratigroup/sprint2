@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .nosotros-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .nosotros-container h2 {
+            margin-top: 20px;
+        }
+        .nosotros-container p {
+            text-align: justify;
+        }
+        .team-members {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .team-member {
+            text-align: center;
+            margin: 10px;
+        }
+        .team-member img {
+            border-radius: 50%;
+        }
+        .team-member h3 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        .team-member p {
+            margin: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+<script>
+    // incluir el header desde header.html
+    fetch('../templates/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML('afterbegin', data);
+        });
+</script>
+
+    <h1 class="text-center">Nosotros</h1>
+    <div class="nosotros-container">
+        <h2 class="text-center">Sobre TechStore</h2>
+        <p>En TechStore, nos apasiona la tecnología y estamos comprometidos a ofrecerte los mejores productos y servicios. Fundada en 2023, nuestra misión es proporcionar a nuestros clientes una experiencia de compra excepcional, con una amplia gama de productos tecnológicos de alta calidad a precios competitivos.</p>
+        <h2 class="text-center">Nuestra Misión</h2>
+        <p>Nuestra misión es ser el destino preferido para los entusiastas de la tecnología, ofreciendo productos innovadores y un servicio al cliente excepcional. Nos esforzamos por mantenernos a la vanguardia de las tendencias tecnológicas para satisfacer las necesidades cambiantes de nuestros clientes.</p>
+        <h2 class="text-center">Equipo TechStore</h2>
+        <p>Detrás de TechStore hay un equipo dedicado de profesionales apasionados por la tecnología. Desde nuestro equipo de atención al cliente hasta nuestros expertos en productos, todos trabajamos juntos para garantizar que cada experiencia de compra sea positiva y satisfactoria.</p>
+        <h2 class="text-center">Contáctanos</h2>
+        <p>Si tienes alguna pregunta o necesitas asistencia, no dudes en ponerte en contacto con nuestro equipo de atención al cliente. Estamos aquí para ayudarte y asegurarnos de que tengas la mejor experiencia posible con TechStore.</p>
+    </div> 
+    <div>
+        <h2 class="text-center">Ubicación</h2>
+        <p>Estamos ubicados en el corazón de la ciudad, lo que nos permite ofrecer un servicio rápido y eficiente. Visítanos en nuestra tienda física para ver nuestros productos de cerca y recibir asesoramiento personalizado.</p>
+    </div>
+    <div>
+        <!-- NUESTRO EQUIPO DE TRABAJO-->
+        <h2 class="text-center">Equipo de Trabajo</h2>
+        <p>Nuestro equipo está formado por expertos en diversas áreas de la tecnología, incluyendo desarrollo de software, diseño gráfico y atención al cliente. Trabajamos juntos para ofrecerte la mejor experiencia posible.</p>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="assets/img/team-member1.jpg" alt="Miembro del equipo 1" width="200" height="200">
+                <h3>Juan Pérez</h3>
+                <p>CEO & Fundador</p>
+            </div>
+            <div class="team-member">
+                <img src="assets/img/team-member2.jpg" alt="Miembro del equipo 2" width="200" height="200">
+                <h3>Ana Gómez</h3>
+                <p>Gerente de Marketing</p>
+            </div>
+            <div class="team-member">
+                <img src="assets/img/team-member3.jpg" alt="Miembro del equipo 3" width="200" height="200">
+                <h3>Carlos Rodríguez</h3>
+                <p>Desarrollador Web</p>
+            </div>
+    </div>
+<script>
+    // incluir el footer desde footer.html
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML('beforeend', data);
+        });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>                    
+</body>
+</html>

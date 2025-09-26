@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}   
+:root {
+    --primary-color: #0d6efd;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --font-family: 'Arial', sans-serif;
+    --color-danger: #dc3545;
+    --color-warning: #ffc107;
+    --color-info: #17a2b8;              
+    --color-error: #f44336;
+    --color-success: #4CAF50;
+    background-color: aliceblue;
+}

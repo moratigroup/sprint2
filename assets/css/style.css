@@ -1,0 +1,118 @@
+:root {
+            --primary-color: #5ab94c;
+            --secondary-color: #0fe4f4;
+            --third-color: #175e41;
+            --fourth-color: #000000;
+            --font-family: 'Arial', sans-serif;
+            --color-error: #f44336;
+            --color-success: #4CAF50;
+            background-color: aliceblue;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .header {
+            background-color: var(--background-color);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; 
+
+        }
+        /* Logo alineado a la izquierda */
+        .header__logo img {
+            max-width: 100%;
+            height: auto;
+
+        }
+        
+        .header__nav {
+            flex-grow: 1;
+            text-align: left;
+        }
+        .header__nav__list {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .header__nav__link {
+            color: var(--text-color);
+            text-decoration: none; 
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: bold;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .header__nav__link:hover {
+            color: var(--primary-color);
+            transform: scale(1.1); 
+        }
+        .header__nav__link:active {
+            color: var(--color-success);
+        }
+
+        section.banner {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        section.banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        section.banner p {
+            font-size: 1.2rem;
+        }
+
+        section.banner .carousel-item {
+            height: 20rem;
+        }
+
+        section.banner .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+        }
+        
+        footer.footer {
+            background-color: var(--third-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    .carrito {
+        background-color: var(--background-color);
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .carrito h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .carrito p {
+        font-size: 1.2rem;
+    }
+
+    .carrito ul {
+        list-style: none;
+        padding: 0;
+    }
+
+

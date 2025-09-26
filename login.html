@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script defer src="./assets/js/registro.js"></script>
+
+    <title>Document</title>
+    <style>
+:root {
+    --primary-color: #5ab94c; /* Color primario verde */
+    --secondary-color: #0fe4f4; /* Color secundario cian */
+    --third-color: #175e41; /* Color terciario verde oscuro */
+    --fourth-color: #000000; /* Color cuaternario negro */
+    --font-family: 'Arial', sans-serif; /* Fuente principal */
+    --color-error: #f44336; /* Color de error rojo */
+    --color-success: #4CAF50; /* Color de éxito verde */
+}
+
+body {
+    font-family: var(--font-family); /* Fuente principal */
+    background-color: aliceblue; /* Color de fondo */
+    color: var(--fourth-color); /* Color de texto */
+    margin: 0; /* Elimina el margen por defecto */
+    padding: 0; /* Elimina el padding por defecto */
+    display: flex; /* Usa flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    min-height: 100vh;  /* Asegura que el contenido esté centrado verticalmente */
+    border: solid 0.5px #ccc;
+}
+
+form {
+    background: #fff; /* Fondo blanco para el formulario */
+    border-radius: 18px; /* Bordes redondeados */
+    box-shadow: 0 4px 24px rgba(15, 228, 244, 0.12), 0 1.5px 6px rgba(90, 185, 76, 0.08); /* Sombra para dar profundidad */
+    padding: 2.5rem 2rem; /* Espaciado interno */
+    width: 100%; /* Ancho completo del contenedor */
+    max-width: 400px; /* Ancho máximo para pantallas grandes */
+    display: flex; /* Usa flexbox para organizar los elementos del formulario */
+    flex-direction: column; /* Organiza los elementos en columna */
+    gap: 1.2rem; /* Espacio entre los elementos */
+}
+
+h2 {
+    color: var(--primary-color); /* Color primario para el título */
+    text-align: center; /* Centra el texto */
+    margin-bottom: 1rem; /* Espacio debajo del título */
+    font-weight: 700; /* Fuente en negrita */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+label {
+    color: var(--third-color); /* Color terciario para las etiquetas */
+    font-size: 1rem; /* Tamaño de fuente */
+    margin-bottom: 0.3rem; /* Espacio debajo de la etiqueta */
+    font-weight: 500; /* Fuente semi-negrita */
+}
+
+input[type="text"], /* Campo de texto */
+input[type="email"], /* Campo de correo electrónico */
+input[type="password"] { /* Campo de contraseña */
+    padding: 0.7rem 1rem;
+    border: 1.5px solid var(--secondary-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    background: #f7fcfa;
+}
+
+input[type="text"]:focus, /* Campo de texto enfocado */
+input[type="email"]:focus, /* Campo de correo electrónico enfocado */
+input[type="password"]:focus { /* Campo de contraseña enfocado */
+    border-color: var(--primary-color); /* Cambia el borde al color primario al enfocar */
+    background: #eafff7; /* Fondo ligeramente diferente al enfocar */
+}
+
+button[type="submit"] { /* Botón de envío */
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); /* Degradado para el botón */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 0.9rem 0; /* Espaciado interno */
+    font-size: 1.1rem; /* Tamaño de fuente */
+    font-weight: 700; /* Fuente en negrita */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    margin-top: 0.5rem; /* Espacio encima del botón */
+    transition: background 0.2s, transform 0.1s; /* Transición suave para el fondo y la transformación */
+    box-shadow: 0 2px 8px rgba(23, 94, 65, 0.08); /* Sombra para dar profundidad */
+}
+
+button[type="submit"]:hover { /* Efecto hover para el botón */
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color)); /* Invierte el degradado al pasar el cursor */
+    transform: translateY(-2px) scale(1.03); /* Efecto de elevación y ligero zoom */
+}
+
+@media (max-width: 500px) { /* Estilos para pantallas pequeñas */
+    form {
+        padding: 1.2rem 0.7rem; /* Reduce el padding */
+    }
+    h2 {
+        font-size: 1.2rem; /* Reduce el tamaño del título */
+    }
+}
+.logo { 
+    text-align: center; /* Centra el contenido del logo */
+    margin-bottom: 0 rem; /* Espacio debajo del logo */
+    align-items: center; /* Centra los elementos hijos en el eje transversal */
+    justify-content: center; /* Centra los elementos hijos en el eje principal */
+    display: flex; /* Usa flexbox para organizar los elementos del logo */
+    flex-direction: column; /* Organiza los elementos en columna */
+    align-items: center; /* Centra los elementos hijos en el eje transversal */
+    justify-content: center; /* Centra los elementos hijos en el eje principal */
+
+}
+.logo img { 
+    max-width: 15rem; /* Ancho máximo del logo */
+    height: auto; /* Altura automática para mantener la proporción */
+    display: inline-block; /* Muestra el logo como un bloque en línea */
+    margin-bottom: 1rem; /* Espacio debajo del logo */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: transform 0.2s; /* Transición suave para el efecto hover */
+}
+
+.logo img:hover { /* Efecto hover para el logo */
+    transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+}
+.error-message { /* Mensaje de error */
+    color: var(--color-error); /* Color de error rojo */
+    font-size: 0.9rem; /* Tamaño de fuente */
+    margin-top: -0.5rem; /* Espacio encima del mensaje */
+    margin-bottom: 0.5rem; /* Espacio debajo del mensaje */
+    display: none; /* Oculta el mensaje por defecto */
+}
+.success-message { /* Mensaje de éxito */
+    color: var(--color-success); /* Color de éxito verde */
+    font-size: 0.9rem; /* Tamaño de fuente */
+    margin-top: -0.5rem; /* Espacio encima del mensaje */
+    margin-bottom: 0.5rem; /* Espacio debajo del mensaje */
+    display: none; /* Oculta el mensaje por defecto */
+}
+input.error { /* Campo con error */
+    border-color: var(--color-error); /* Cambia el borde al color de error rojo */
+}
+input.success { /* Campo con éxito */
+    border-color: var(--color-success); /* Cambia el borde al color de éxito verde */
+}
+.texto-auxiliar { /* Texto auxiliar */
+    text-align: center; /* Centra el texto */
+    margin-top: 1rem; /* Espacio encima del texto */
+    font-size: 0.9rem; /* Tamaño de fuente */
+    color: var(--third-color); /* Color del texto */
+}
+.texto-auxiliar a { /* Enlace dentro del texto auxiliar */
+    color: var(--primary-color); /* Color primario para el enlace */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: 600; /* Fuente semi-negrita */ 
+}
+.texto-auxiliar a:hover { /* Efecto hover para el enlace */
+    text-decoration: underline; /* Subraya el enlace al pasar el cursor */
+}
+
+
+
+</style>
+</head>
+<body>
+    <main>
+<!-- Logo de la empresa -->
+        <div class="logo">
+            <img src="./assets/img/logo techstore sin fondo.png" alt="Logo TechStore">
+        </div>
+<!-- Formulario de login con Nombre completo, correo electronico, contrasnea y validacion  de contrasnea con logica desde registro.js con metodo POST -->
+    <form id="loginForm" action="/login" method="POST">
+        <h2 class="titulo">Iniciar Sesión</h2>
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" required>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+    <div class="texto-auxiliar">
+        ¿No tienes una cuenta? <a href="/registro.html">Regístrate aquí</a>
+    </div>
+    <div>
+        <p class="texto-auxiliar">¿Olvidaste tu contraseña? <a href="/recuperar.html">Recupérala aquí</a></p>
+        <div class="error-message">
+            <p>Credenciales incorrectas. Por favor, inténtalo de nuevo.</p>
+        </div>
+
+</div> 
+</main>
+</body>
+</html>
