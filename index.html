@@ -9,24 +9,28 @@
     <title>Document</title>
     <style>
         .banner {
-            margin-top: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
         .destacados {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
+            margin-top: 0;
+        
         }
 
         .destacados__title {
             font-size: 2em;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            margin-top: 0;
+
         }
 
         .destacados__grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            padding: 0 20px;
+            padding: 0;
+            margin: 0 20px 40px 20px;
         }
 
         .product-item {
@@ -71,7 +75,69 @@
         .product-item .btn:hover {
             background-color: #0056b3;
         }
+        .product-item {
+            background: linear-gradient(135deg, #f8fafc 60%, #e3f0ff 100%);
+            box-shadow: 0 2px 12px rgba(0, 123, 255, 0.08);
+            border: 2px solid #e3f0ff;
+            position: relative;
+            overflow: hidden;
+        }
 
+        .product-item::before {
+            content: "★ DESTACADO";
+            position: absolute;
+            top: 12px;
+            left: -40px;
+            background: #ffc107;
+            color: #222;
+            font-size: 0.85em;
+            font-weight: bold;
+            padding: 4px 40px;
+            transform: rotate(-20deg);
+            box-shadow: 0 2px 6px rgba(255,193,7,0.15);
+            letter-spacing: 1px;
+        }
+
+        .product-item img {
+            border-radius: 8px;
+            border: 2px solid #007bff22;
+            transition: transform 0.3s;
+        }
+
+        .product-item:hover img {
+            transform: scale(1.05) rotate(-2deg);
+        }
+
+        .product-item h3 {
+            color: #007bff;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .product-item p {
+            color: #444;
+            font-size: 1em;
+            margin-bottom: 18px;
+        }
+
+        .product-item .btn {
+            background: linear-gradient(90deg, #007bff 60%, #0056b3 100%);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.10);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        .product-item .btn:hover {
+            background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
+            box-shadow: 0 4px 16px rgba(0,123,255,0.18);
+        }
+        .product-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
 
     </style>
 </head>
@@ -88,7 +154,7 @@
         </script>
     </header>
 <main>
-    <!-- Banner que se mueva cada 2 segundos -->
+<!-- Banner que se mueva cada 2 segundos -->
 
     <section class="banner">
         <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
@@ -119,14 +185,13 @@
         <div class="carrito__info">
             <h2 class="carrito__title">Tu Carrito de Compras</h2>
             <p class="carrito__description">Revisa los productos que has agregado a tu carrito y procede al pago cuando estés listo.</p>
-            <a href="carrito.html" class="btn btn-success">Ver Carrito</a>
         </div>
     </section>
 
     <section class="destacados">
         <h2 class="destacados__title">Productos Destacados</h2>
         <div class="destacados__grid">
-            <!-- Los productos destacados se agregarán aquí dinámicamente -->
+<!-- Los productos destacados se agregarán aquí dinámicamente -->
         </div>
     </section>
 
@@ -143,8 +208,13 @@
             item.innerHTML = `
                 <img src="${producto.imagen}" alt="${producto.nombre}">
                 <h3>${producto.nombre}</h3>
+                <p>Precio: $${producto.precio.toFixed(2)}</p>
                 <p>${producto.descripcion}</p>
-                <a href="${producto.enlace}" class="btn btn-primary">Ver Detalles</a>
+                <div class="product-actions">
+                    <button class="btn btn-primary agregar-carrito" data-id="${producto.id}">Agregar al Carrito</button>
+                    <button class="btn btn-secondary ver-detalles" data-id="${producto.id}">Ver Detalles</button>
+
+                </div>
             `;
             contenedor.appendChild(item);
         });
